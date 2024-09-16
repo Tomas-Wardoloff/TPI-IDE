@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{3F94DF9E-1A95-42AC-B189-5E3C59EA7094}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A28466AB-E135-45D3-9E13-2D2083A8F9EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{D2E03E5E-0454-4A74-93DA-796B6A0F7E58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3F94DF9E-1A95-42AC-B189-5E3C59EA7094}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F94DF9E-1A95-42AC-B189-5E3C59EA7094}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F94DF9E-1A95-42AC-B189-5E3C59EA7094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28466AB-E135-45D3-9E13-2D2083A8F9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28466AB-E135-45D3-9E13-2D2083A8F9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28466AB-E135-45D3-9E13-2D2083A8F9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28466AB-E135-45D3-9E13-2D2083A8F9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E03E5E-0454-4A74-93DA-796B6A0F7E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E03E5E-0454-4A74-93DA-796B6A0F7E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E03E5E-0454-4A74-93DA-796B6A0F7E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E03E5E-0454-4A74-93DA-796B6A0F7E58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
