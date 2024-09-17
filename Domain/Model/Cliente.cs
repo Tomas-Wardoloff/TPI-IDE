@@ -12,10 +12,7 @@ namespace Domain.Model
         public string localidad { get; set; }
         public string mail { get; set; }
         public string telefono { get; set; }
-        /*public List<Venta> ventas { get; set; }
-        public Cliente()
-        {
-            ventas = new List<Venta>();
-        }*/
+        public ICollection<Venta> Venta { get; set; }
+        public ICollection<Servicio> Servicio { get; set; }
     }
 }

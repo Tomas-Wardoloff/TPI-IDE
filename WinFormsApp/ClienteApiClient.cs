@@ -13,7 +13,7 @@ namespace WinFormsApp
         private static HttpClient client = new HttpClient();
         static ClienteApiClient()
         {
-            client.BaseAddress = new Uri("http://localhost:5183/");
+            client.BaseAddress = new Uri("https://localhost:7092/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
