@@ -19,6 +19,17 @@ namespace WinFormsApp
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        public static async Task<Cliente> GetAsync(int id)
+        {
+            Cliente cliente = null;
+            HttpResponseMessage response = await client.GetAsync("clientes/" + id);
+            if (response.IsSuccessStatusCode)
+            {
+                cliente = await response.Content.ReadAsAsync<Cliente>();
+            }
+            return cliente;
+        }
+
         public static async Task<IEnumerable<Cliente>> GetAllAsync()
         {
             IEnumerable<Cliente> clientes = null;
@@ -28,6 +39,24 @@ namespace WinFormsApp
                 clientes = await response.Content.ReadAsAsync<IEnumerable<Cliente>>();
             }
             return clientes;
+        }
+
+        public static async Task UpdateAsync(Cliente cliente)
+        {
+            HttpResponseMessage response = await client.PutAsJsonAsync("clientes", cliente);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async static Task AddAsync(Cliente cliente)
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync("clientes", cliente);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public static async Task DeleteAsync(int id)
+        {
+            HttpResponseMessage response = await client.DeleteAsync("clientes/" + id);
+            response.EnsureSuccessStatusCode();
         }
     }
 }

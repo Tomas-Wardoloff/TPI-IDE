@@ -9,7 +9,7 @@ namespace Domain.Model
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string domicilio { get; set; }
-        public MailAddress mail { get; set; }
+        public string mail { get; set; }
         public DateTime fechaIngreso { get; set; }
         public ICollection<Servicio> Servicio { get; set; }
         public int DepartamentoId { get; set; }
