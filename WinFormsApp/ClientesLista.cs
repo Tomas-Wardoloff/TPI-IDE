@@ -85,5 +85,10 @@ namespace WinFormsApp
 
             return cliente;
         }
+
+        private void volverButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

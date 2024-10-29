@@ -21,6 +21,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+// Clientes
 app.MapGet("/clientes/{id}", (int id) =>
 {
     ClienteService clienteService = new ClienteService();
@@ -64,6 +66,17 @@ app.MapDelete("/clientes/{id}", (int id) =>
     clienteService.Delete(id);
 })
 .WithName("DeleteCliente")
+.WithOpenApi();
+
+
+// Venta
+app.MapGet("/ventas", () =>
+{
+    VentaService ventaService = new VentaService();
+
+    return ventaService.GetAll();
+})
+.WithName("GetAllVentas")
 .WithOpenApi();
 
 app.Run();
