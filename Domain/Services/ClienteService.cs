@@ -47,7 +47,13 @@ namespace Domain.Services
 
             if (clienteToUpdate != null)
             {
+                clienteToUpdate.cuitCuil = cliente.cuitCuil;
                 clienteToUpdate.razonSocial = cliente.razonSocial;
+                clienteToUpdate.domicilio = cliente.domicilio;
+                clienteToUpdate.localidad = cliente.localidad;
+                clienteToUpdate.mail = cliente.mail;
+
+                clienteToUpdate.telefono = cliente.telefono;
                 context.SaveChanges();
             }
         }

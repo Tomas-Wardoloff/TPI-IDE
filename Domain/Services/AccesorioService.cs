@@ -48,6 +48,10 @@ namespace Domain.Services
             if (accesorioToUpdate != null)
             {
                 accesorioToUpdate.descripcion = accesorio.descripcion;
+                accesorioToUpdate.importeCompra = accesorio.importeCompra;
+                accesorioToUpdate.importeVenta = accesorio.importeVenta;
+                accesorioToUpdate.stock = accesorio.stock;
+
                 context.SaveChanges();
             }
         }
