@@ -32,13 +32,13 @@ namespace WinFormsApp
 
         public static async Task<IEnumerable<Proveedor>> GetAllAsync()
         {
-            IEnumerable<Proveedor> proveedors = null;
+            IEnumerable<Proveedor> proveedores = null;
             HttpResponseMessage response = await client.GetAsync("proveedores");
             if (response.IsSuccessStatusCode)
             {
-                proveedors = await response.Content.ReadAsAsync<IEnumerable<Proveedor>>();
+                proveedores = await response.Content.ReadAsAsync<IEnumerable<Proveedor>>();
             }
-            return proveedors;
+            return proveedores;
         }
 
         public static async Task UpdateAsync(Proveedor proveedor)

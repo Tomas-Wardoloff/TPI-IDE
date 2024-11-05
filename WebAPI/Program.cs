@@ -256,7 +256,6 @@ app.MapDelete("/empleados/{id}", (int id) =>
 
 
 //Maquinaria
-
 app.MapGet("/maquinarias/{id}", (int id) =>
 {
     MaquinariaService maquinariaService = new MaquinariaService();
@@ -302,8 +301,8 @@ app.MapDelete("/maquinarias/{id}", (int id) =>
 .WithName("DeleteMaquinaria")
 .WithOpenApi();
 
-//Proveedor
 
+//Proveedor
 app.MapGet("/proveedores/{id}", (int id) =>
 {
     ProveedorService proveedorService = new ProveedorService();

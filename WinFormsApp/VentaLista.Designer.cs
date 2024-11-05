@@ -80,6 +80,7 @@
             volverButton.TabIndex = 4;
             volverButton.Text = "Volver";
             volverButton.UseVisualStyleBackColor = true;
+            volverButton.Click += volverButton_Click;
             // 
             // VentaLista
             // 
@@ -93,6 +94,7 @@
             Controls.Add(ventasDataGridView);
             Name = "VentaLista";
             Text = "VentaLista";
+            Load += VentaLista_Load;
             ((System.ComponentModel.ISupportInitialize)ventasDataGridView).EndInit();
             ResumeLayout(false);
         }

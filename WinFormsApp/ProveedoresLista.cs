@@ -17,36 +17,8 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-        private void Proveedors_Load(object sender, EventArgs e)
+        private void ProveedoresLista_Load(object sender, EventArgs e)
         {
-            this.GetAllAndLoad();
-        }
-
-        private async void eliminarButton_Click(object sender, EventArgs e)
-        {
-            int idProveedor;
-
-            idProveedor = this.SelectedItem().idProveedor;
-            await ProveedorApiClient.DeleteAsync(idProveedor);
-
-            this.GetAllAndLoad();
-        }
-
-        private async void modificarButton_Click(object sender, EventArgs e)
-        {
-            ProveedorDetalle proveedorDetalle = new ProveedorDetalle();
-
-            int idProveedor;
-
-            idProveedor = this.SelectedItem().idProveedor;
-
-            Proveedor proveedor = await ProveedorApiClient.GetAsync(idProveedor);
-
-            proveedorDetalle.EditMode = true;
-            proveedorDetalle.Proveedor = proveedor;
-
-            proveedorDetalle.ShowDialog();
-
             this.GetAllAndLoad();
         }
 
@@ -95,6 +67,34 @@ namespace WinFormsApp
         private void volverButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void eliminarButton_Click(object sender, EventArgs e)
+        {
+            int idProveedor;
+
+            idProveedor = this.SelectedItem().idProveedor;
+            await ProveedorApiClient.DeleteAsync(idProveedor);
+
+            this.GetAllAndLoad();
+        }
+
+        private async void modificarButton_Click(object sender, EventArgs e)
+        {
+            ProveedorDetalle proveedorDetalle = new ProveedorDetalle();
+
+            int idProveedor;
+
+            idProveedor = this.SelectedItem().idProveedor;
+
+            Proveedor proveedor = await ProveedorApiClient.GetAsync(idProveedor);
+
+            proveedorDetalle.EditMode = true;
+            proveedorDetalle.Proveedor = proveedor;
+
+            proveedorDetalle.ShowDialog();
+
+            this.GetAllAndLoad();
         }
     }
 }

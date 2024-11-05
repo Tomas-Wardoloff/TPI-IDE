@@ -16,7 +16,7 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-        private void Ventas_Load(object sender, EventArgs e)
+        private void VentaLista_Load(object sender, EventArgs e)
         {
             this.GetAllAndLoad();
         }
@@ -41,6 +41,11 @@ namespace WinFormsApp
                 this.eliminarButton.Enabled = false;
                 this.modificarButton.Enabled = false;
             }
+        }
+
+        private void volverButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
