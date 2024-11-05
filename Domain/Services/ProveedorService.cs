@@ -47,10 +47,10 @@ namespace Domain.Services
 
             if (proveedorToUpdate != null)
             {
-                proveedorToUpdate.razonsocial = proveedor.razonsocial;
+                proveedorToUpdate.razonSocial = proveedor.razonSocial;
                 proveedorToUpdate.mail = proveedor.mail;
                 proveedorToUpdate.telefono = proveedor.telefono;
-                proveedorToUpdate.repuestoID = proveedor.repuestoID;
+                proveedorToUpdate.RepuestoID = proveedor.RepuestoID;
 
                 context.SaveChanges();
             }

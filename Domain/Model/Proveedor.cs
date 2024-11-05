@@ -10,6 +10,6 @@ namespace Domain.Model
         public string telefono { get; set; }
         public string mail { get; set; }
         public Repuesto Repuesto { get; set; }
-        public int RepuestoId { get; set; }
+        public int RepuestoID { get; set; }
     }
 }

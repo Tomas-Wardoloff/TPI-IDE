@@ -52,7 +52,7 @@ namespace Domain.Services
                 empleadoToUpdate.apellido  = empleado.apellido;
                 empleadoToUpdate.domicilio = empleado.domicilio;
                 empleadoToUpdate.mail= empleado.mail;
-                empleadoToUpdate.departamentoId = empleado.departamentoId;
+                empleadoToUpdate.DepartamentoId = empleado.DepartamentoId;
 
                 context.SaveChanges();
             }

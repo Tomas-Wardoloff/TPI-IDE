@@ -110,8 +110,6 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(telefonoTextBox, "El campo Telefono es obligatorio");
             }
-
-
             return isValid;
         }
     }

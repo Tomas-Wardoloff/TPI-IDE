@@ -50,7 +50,7 @@ namespace Domain.Services
                 maquinariaToUpdate.modelo = maquinaria.modelo;
                 maquinariaToUpdate.importeCompra = maquinaria.importeCompra;
                 maquinariaToUpdate.importeVenta = maquinaria.importeVenta;
-                maquinariaToUpdate.ventaID = maquinaria.ventaID;
+                maquinariaToUpdate.VentaID = maquinaria.VentaID;
 
                 context.SaveChanges();
             }
