@@ -79,4 +79,98 @@ app.MapGet("/ventas", () =>
 .WithName("GetAllVentas")
 .WithOpenApi();
 
+
+//Accesorios
+app.MapGet("/accesorios/{id}", (int id) =>
+{
+    AccesorioService accesorioService = new AccesorioService();
+
+    return accesorioService.Get(id);
+})
+.WithName("GetAccesorio")
+.WithOpenApi();
+
+app.MapGet("/accesorios", () =>
+{
+    AccesorioService accesorioService = new AccesorioService();
+
+    return accesorioService.GetAll();
+})
+.WithName("GetAllAccesorios")
+.WithOpenApi();
+
+app.MapPost("/accesorios", (Accesorio accesorio) =>
+{
+    AccesorioService accesorioService = new AccesorioService();
+
+    accesorioService.Add(accesorio);
+})
+.WithName("AddAccesorio")
+.WithOpenApi();
+
+app.MapPut("/accesorios", (Accesorio accesorio) =>
+{
+    AccesorioService accesorioService = new AccesorioService();
+
+    accesorioService.Update(accesorio);
+})
+.WithName("UpdateAccesorio")
+.WithOpenApi();
+
+app.MapDelete("/accesorios/{id}", (int id) =>
+{
+    AccesorioService accesorioService = new AccesorioService();
+
+    accesorioService.Delete(id);
+})
+.WithName("DeleteAccesorio")
+.WithOpenApi();
+
+
+// Departamento
+app.MapGet("/departamentos/{id}", (int id) =>
+{
+    DepartamentoService departamentoService = new DepartamentoService();
+
+    return departamentoService.Get(id);
+})
+.WithName("GetDepartamento")
+.WithOpenApi();
+
+app.MapGet("/departamentos", () =>
+{
+    DepartamentoService departamentoService = new DepartamentoService();
+
+    return departamentoService.GetAll();
+})
+.WithName("GetAllDepartamentos")
+.WithOpenApi();
+
+app.MapPost("/departamentos", (Departamento departamento) =>
+{
+    DepartamentoService departamentoService = new DepartamentoService();
+
+    departamentoService.Add(departamento);
+})
+.WithName("AddDepartamento")
+.WithOpenApi();
+
+app.MapPut("/departamentos", (Departamento departamento) =>
+{
+    DepartamentoService departamentoService = new DepartamentoService();
+
+    departamentoService.Update(departamento);
+})
+.WithName("UpdateDepartamento")
+.WithOpenApi();
+
+app.MapDelete("/departamentos/{id}", (int id) =>
+{
+    DepartamentoService departamentoService = new DepartamentoService();
+
+    departamentoService.Delete(id);
+})
+.WithName("DeleteDepartamento")
+.WithOpenApi();
+
 app.Run();
