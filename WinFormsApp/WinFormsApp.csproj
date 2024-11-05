@@ -16,4 +16,11 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Cliente\" />
+    <Folder Include="Accesorios\" />
+    <Folder Include="Proveedores\" />
+    <Folder Include="Venta\" />
+  </ItemGroup>
+
 </Project>
