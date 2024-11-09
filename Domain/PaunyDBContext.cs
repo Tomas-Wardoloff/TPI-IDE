@@ -3,17 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Domain
 {
-    internal class PaunyDBContext : DbContext
+    public class PaunyDBContext : DbContext
     {
-        internal DbSet<Cliente> Clientes { get; set; }
-        internal DbSet<Venta> Ventas { get; set; }
-        internal DbSet<Servicio> Servicios { get; set; }
-        internal DbSet<Empleado> Empleados { get; set; }
-        internal DbSet<Maquinaria> Maquinarias { get; set; }
-        internal DbSet<Repuesto> Repuestos { get; set; }
-        internal DbSet<Departamento> Departamentos { get; set; }
-        internal DbSet<Accesorio> Accesorios { get; set; }
-        internal DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<Servicio> Servicios { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<Maquinaria> Maquinarias { get; set; }
+        public DbSet<Repuesto> Repuestos { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Accesorio> Accesorios { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -91,7 +91,7 @@ namespace Domain
         }
 
 
-        internal PaunyDBContext()
+        public PaunyDBContext()
         {
             this.Database.EnsureCreated();
         }

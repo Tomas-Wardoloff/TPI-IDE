@@ -1,4 +1,6 @@
-﻿using Domain.Model;
+﻿using Domain;
+using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +23,28 @@ namespace WinFormsApp
             set
             {
                 proveedor = value;
-                //this.SetProveedor();
+                this.SetProveedor();
             }
         }
         public ProveedorDetalle()
         {
             InitializeComponent();
         }
+        private async void ProveedorDetalle_Load(object sender, EventArgs e)
+        {
+            await CargarRepuestos();
+        }
+        private async Task CargarRepuestos()
+        {
+            using (var context = new PaunyDBContext())
+            {
+                var repuestos = await context.Repuestos.ToListAsync();
+                repuestoComboBox.DataSource = repuestos;
+                repuestoComboBox.DisplayMember = "Descripcion";  
+                repuestoComboBox.ValueMember = "IdRepuesto";    
+            }
+        }
+
 
         private async void aceptarButton_Click(object sender, EventArgs e)
         {
@@ -38,7 +55,7 @@ namespace WinFormsApp
                 this.Proveedor.razonSocial = this.razonSocialTextBox.Text;
                 this.Proveedor.mail = this.mailTextBox.Text;
                 this.Proveedor.telefono = this.telefonoTextBox.Text;
-                //this.Proveedor.repuesto = this.repuestoTextBox.Text;
+                var repuestoSeleccionado = (int)repuestoComboBox.SelectedValue;
 
                 if (this.EditMode)
                 {
@@ -62,7 +79,7 @@ namespace WinFormsApp
             this.razonSocialTextBox.Text = proveedor.razonSocial;
             this.mailTextBox.Text = proveedor.mail;
             this.telefonoTextBox.Text = proveedor.telefono;
-            //falta repuesto
+            this.repuestoComboBox.SelectedValue = proveedor.Repuesto;
         }
         private bool ValidateProveedor()
         {
@@ -71,7 +88,7 @@ namespace WinFormsApp
             errorProvider.SetError(razonSocialTextBox, string.Empty);
             errorProvider.SetError(mailTextBox, string.Empty); // chequear que tenga formato de mail
             errorProvider.SetError(telefonoTextBox, string.Empty); // chequear que tenga formato de telefono
-            //falta chequear repuesto si es necesario
+            errorProvider.SetError(repuestoComboBox, string.Empty);
 
             if (this.razonSocialTextBox.Text == string.Empty)
             {
@@ -89,7 +106,11 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(telefonoTextBox, "El campo Telefono es obligatorio");
             }
-            //falta chequear repuesto si es necesario
+            if (this.repuestoComboBox.SelectedItem == null)
+            {
+                isValid = false;
+                errorProvider.SetError(repuestoComboBox, "Debe seleccionar un Repuesto");
+            }
 
             return isValid;
         }

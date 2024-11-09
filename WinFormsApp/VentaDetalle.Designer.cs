@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             fechaLabel = new Label();
             importeTotalLabel = new Label();
             estadoLabel = new Label();
@@ -42,6 +43,8 @@
             fechaTextBox = new TextBox();
             aceptarButton = new Button();
             cancelarButton = new Button();
+            errorProvider = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // fechaLabel
@@ -151,6 +154,7 @@
             aceptarButton.TabIndex = 12;
             aceptarButton.Text = "Aceptar";
             aceptarButton.UseVisualStyleBackColor = true;
+            aceptarButton.Click += aceptarButton_Click;
             // 
             // cancelarButton
             // 
@@ -160,6 +164,11 @@
             cancelarButton.TabIndex = 13;
             cancelarButton.Text = "Cancelar";
             cancelarButton.UseVisualStyleBackColor = true;
+            cancelarButton.Click += cancelarButton_Click;
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // VentaDetalle
             // 
@@ -182,6 +191,8 @@
             Controls.Add(fechaLabel);
             Name = "VentaDetalle";
             Text = "VentaDetalle";
+            Load += VentaDetalle_Load;
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,5 +213,6 @@
         private TextBox fechaTextBox;
         private Button aceptarButton;
         private Button cancelarButton;
+        private ErrorProvider errorProvider;
     }
 }

@@ -36,10 +36,10 @@
             razonSocialTextBox = new TextBox();
             telefonoTextBox = new TextBox();
             mailTextBox = new TextBox();
-            repuestoTextBox = new TextBox();
             aceptarButton = new Button();
             cancelarButton = new Button();
             errorProvider = new ErrorProvider(components);
+            repuestoComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -100,13 +100,6 @@
             mailTextBox.Size = new Size(100, 23);
             mailTextBox.TabIndex = 6;
             // 
-            // repuestoTextBox
-            // 
-            repuestoTextBox.Location = new Point(163, 190);
-            repuestoTextBox.Name = "repuestoTextBox";
-            repuestoTextBox.Size = new Size(100, 23);
-            repuestoTextBox.TabIndex = 7;
-            // 
             // aceptarButton
             // 
             aceptarButton.Location = new Point(163, 303);
@@ -131,14 +124,22 @@
             // 
             errorProvider.ContainerControl = this;
             // 
+            // repuestoComboBox
+            // 
+            repuestoComboBox.FormattingEnabled = true;
+            repuestoComboBox.Location = new Point(163, 190);
+            repuestoComboBox.Name = "repuestoComboBox";
+            repuestoComboBox.Size = new Size(100, 23);
+            repuestoComboBox.TabIndex = 10;
+            // 
             // ProveedorDetalle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(339, 338);
+            Controls.Add(repuestoComboBox);
             Controls.Add(cancelarButton);
             Controls.Add(aceptarButton);
-            Controls.Add(repuestoTextBox);
             Controls.Add(mailTextBox);
             Controls.Add(telefonoTextBox);
             Controls.Add(razonSocialTextBox);
@@ -148,6 +149,7 @@
             Controls.Add(razonsocialLabel);
             Name = "ProveedorDetalle";
             Text = "ProveedorDetalle";
+            Load += ProveedorDetalle_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -162,9 +164,9 @@
         private TextBox razonSocialTextBox;
         private TextBox telefonoTextBox;
         private TextBox mailTextBox;
-        private TextBox repuestoTextBox;
         private Button aceptarButton;
         private Button cancelarButton;
         private ErrorProvider errorProvider;
+        private ComboBox repuestoComboBox;
     }
 }
