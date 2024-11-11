@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -101,6 +102,11 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(mailTextBox, "El campo Mail es obligatorio");
             }
+            else if (!IsValidEmail(this.mailTextBox.Text))
+            {
+                isValid = false;
+                errorProvider.SetError(mailTextBox, "El formato del correo electrónico no es válido");
+            }
             else if (this.telefonoTextBox.Text == string.Empty)
             {
                 isValid = false;
@@ -111,10 +117,14 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(repuestoComboBox, "Debe seleccionar un Repuesto");
             }
+            
 
             return isValid;
         }
-
-        
+        public bool IsValidEmail(string email)
+        {
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
+        }
     }
 }

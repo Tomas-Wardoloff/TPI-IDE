@@ -129,10 +129,20 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(importeCompraTextBox, "El campo Importe de Compra es obligatorio");
             }
+            else if (!IsValidAmount(this.importeCompraTextBox.Text))
+            {
+                isValid = false;
+                errorProvider.SetError(importeCompraTextBox, "El importe ingresado no es válido");
+            }
             else if (this.importeVentaTextBox.Text == string.Empty)
             {
                 isValid = false;
                 errorProvider.SetError(importeVentaTextBox, "El campo Importe de Venta es obligatorio");
+            }
+            else if (!IsValidAmount(this.importeVentaTextBox.Text))
+            {
+                isValid = false;
+                errorProvider.SetError(importeVentaTextBox, "El importe ingresado no es válido");
             }
             else if (this.tipoTextBox.Text == string.Empty)
             {
@@ -149,7 +159,12 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(accesorioCheckedListBox, "Debe seleccionar al menos un Accesorio");
             }
+
             return isValid;
+        }
+        private bool IsValidAmount(string amountText)
+        {
+            return float.TryParse(amountText, out _);
         }
 
         private void cancelarButton_Click(object sender, EventArgs e)

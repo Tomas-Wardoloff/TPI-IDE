@@ -153,11 +153,21 @@ namespace WinFormsApp
                 isValid = false;
                 errorProvider.SetError(fechaTextBox, "El campo Fecha es obligatorio");
             }
+            else if (!IsValidDate(this.fechaTextBox.Text))
+            {
+                isValid = false;
+                errorProvider.SetError(fechaTextBox, "La fecha ingresada no es válida");
+            }
 
             else if (this.importeTotalTextBox.Text == string.Empty)
             {
                 isValid = false;
                 errorProvider.SetError(importeTotalTextBox, "El campo Importe Total es obligatorio");
+            }
+            else if (!IsValidAmount(this.importeTotalTextBox.Text))
+            {
+                isValid = false;
+                errorProvider.SetError(importeTotalTextBox, "El importe ingresado no es válido");
             }
             else if (this.estadoTextBox.Text == string.Empty)
             {
@@ -182,7 +192,16 @@ namespace WinFormsApp
 
             return isValid;
         }
-
+        // Método para validar el formato de fecha
+        private bool IsValidDate(string dateText)
+        {
+            return DateTime.TryParse(dateText, out _);
+        }
+        // Método para validar el formato de importe
+        private bool IsValidAmount(string amountText)
+        {
+            return float.TryParse(amountText, out _);
+        }
 
     }
 }
